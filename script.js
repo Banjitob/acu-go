@@ -1,19 +1,22 @@
-(function() {
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const closehamburger = document.getElementById('closehamburger');
-  const mobilePanel = document.getElementById('mobilePanel');
-  const menuOverlay = document.getElementById('menuOverlay');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-  const accountBox = document.getElementById('account');
-  const openAccountDesktop = document.getElementById('openAccountDesktop');
-  const openAccountMobile = document.getElementById('openAccountMobile');
-  const quitaccount = document.getElementById('quitaccount');
-  const quitaccountlogin = document.getElementById('quitaccountlogin');
-  const signupForm = document.getElementById('signup');
-  const loginForm = document.getElementById('login');
-  const openlogin = document.getElementById('openlogin');
-  const opensignup = document.getElementById('opensignup');
+(function () {
 
+  /* ── Elements ── */
+  const hamburgerBtn     = document.getElementById('hamburgerBtn');
+  const mobilePanel      = document.getElementById('mobilePanel');
+  const menuOverlay      = document.getElementById('menuOverlay');
+  const accountBox       = document.getElementById('account');
+  const openAccountDesk  = document.getElementById('openAccountDesktop');
+  const openAccountMob   = document.getElementById('openAccountMobile');
+  const quitaccount      = document.getElementById('quitaccount');
+  const quitaccountlogin = document.getElementById('quitaccountlogin');
+  const signupForm       = document.getElementById('signup');
+  const loginForm        = document.getElementById('login');
+  const openlogin        = document.getElementById('openlogin');
+  const opensignup       = document.getElementById('opensignup');
+  const mainContent      = document.getElementById('mainContent');
+  const heroSell         = document.getElementById('heroSell');
+
+  /* ── Mobile menu ── */
   function openMenu() {
     hamburgerBtn.classList.add('active');
     mobilePanel.classList.add('open');
@@ -28,86 +31,106 @@
     document.body.style.overflow = '';
   }
 
-  hamburgerBtn.addEventListener('click', function(e) {
+  hamburgerBtn.addEventListener('click', function (e) {
     e.stopPropagation();
-    if (mobilePanel.classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    mobilePanel.classList.contains('open') ? closeMenu() : openMenu();
   });
 
   menuOverlay.addEventListener('click', closeMenu);
 
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
       closeMenu();
-    });
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && mobilePanel.classList.contains('open')) {
-      closeMenu();
+      hideAuth();
     }
   });
 
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 850 && mobilePanel.classList.contains('open')) {
-      closeMenu();
-    }
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 850) closeMenu();
   });
 
-  function showAccountModal() {
-    if (accountBox) {
-      accountBox.style.display = 'flex';
-    }
+  /* ── Auth modal ── */
+  function showAuth() {
+    accountBox.classList.add('show-modal');
+    // default: show signup, hide login
+    signupForm.style.display = '';
+    loginForm.style.display  = 'none';
   }
 
-  function hideAccountModal() {
-    if (accountBox) {
-      accountBox.style.display = 'none';
-    }
+  function hideAuth() {
+    accountBox.classList.remove('show-modal');
   }
 
-  if (openAccountDesktop) {
-    openAccountDesktop.addEventListener('click', function(e) {
-      e.preventDefault();
-      showAccountModal();
-    });
-  }
+  if (openAccountDesk)  openAccountDesk.addEventListener('click',  function (e) { e.preventDefault(); showAuth(); });
+  if (openAccountMob)   openAccountMob.addEventListener('click',   function (e) { e.preventDefault(); closeMenu(); showAuth(); });
+  if (quitaccount)      quitaccount.addEventListener('click',      hideAuth);
+  if (quitaccountlogin) quitaccountlogin.addEventListener('click', hideAuth);
 
-  if (openAccountMobile) {
-    openAccountMobile.addEventListener('click', function(e) {
-      e.preventDefault();
-      closeMenu();
-      showAccountModal();
-    });
-  }
-
-  if (quitaccount) quitaccount.addEventListener('click', hideAccountModal);
-  if (quitaccountlogin) quitaccountlogin.addEventListener('click', hideAccountModal);
+  accountBox.addEventListener('click', function (e) {
+    if (e.target === accountBox) hideAuth();
+  });
 
   if (openlogin) {
-    openlogin.addEventListener('click', function() {
-      if (loginForm) loginForm.style.display = 'flex';
-      if (signupForm) signupForm.style.display = 'none';
+    openlogin.addEventListener('click', function () {
+      signupForm.style.display = 'none';
+      loginForm.style.display  = '';
     });
   }
 
   if (opensignup) {
-    opensignup.addEventListener('click', function() {
-      if (signupForm) signupForm.style.display = 'flex';
-      if (loginForm) loginForm.style.display = 'none';
+    opensignup.addEventListener('click', function () {
+      loginForm.style.display  = 'none';
+      signupForm.style.display = '';
     });
   }
 
-  const cartCount = document.getElementById('cartCount');
-  if (cartCount) cartCount.textContent = '0';
+  /* Hero "Start Selling" → open auth */
+  if (heroSell) heroSell.addEventListener('click', showAuth);
 
-  if (mobilePanel) {
-    mobilePanel.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
+  /* ── Tab navigation ── */
+  function activateTab(tabId) {
+    // Show main content area, hide hero
+    mainContent.style.display = 'block';
+    document.getElementById('home').style.display = 'none';
+    document.querySelector('.ticker').style.display = 'none';
+
+    // Deactivate all tab panes & buttons
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active-pane'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(a => a.classList.remove('active-tab'));
+
+    // Activate the right pane
+    const pane = document.getElementById('tab-' + tabId);
+    if (pane) pane.classList.add('active-pane');
+
+    // Activate matching tab button & nav link
+    document.querySelectorAll('.tab-btn[data-tab="' + tabId + '"]').forEach(b => b.classList.add('active'));
+    document.querySelectorAll('.nav-tab[data-tab="' + tabId + '"]').forEach(a => a.classList.add('active-tab'));
+
+    // Scroll to top of content
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Wire up all elements with data-tab
+  document.querySelectorAll('[data-tab]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      const tab = el.getAttribute('data-tab');
+      if (tab) {
+        closeMenu();
+        activateTab(tab);
+      }
+    });
+  });
+
+  // Logo click → back to hero
+  document.querySelector('.logo').addEventListener('click', function () {
+    mainContent.style.display = 'none';
+    document.getElementById('home').style.display = '';
+    document.querySelector('.ticker').style.display = '';
+    document.querySelectorAll('.nav-tab').forEach(a => a.classList.remove('active-tab'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMenu();
+  });
 
 })();

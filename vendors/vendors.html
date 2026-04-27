@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor | Dashboard</title>
+    <link rel="stylesheet" href="vendors.css">
+</head>
+<body>
+    <div class="appcontainer">
+
+        <nav>
+            <div class="logo">bix<span>cart</span></div>
+            <ul class="sidebar">
+                <li><a class="active" onclick="showPage('dashboard', this)">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    Dashboard
+                </a></li>
+                <li><a onclick="showPage('products', this)">
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    Products
+                </a></li>
+                <li><a onclick="showPage('orders', this)">
+                    <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+                    Orders
+                </a></li>
+                <li><a onclick="showPage('settings', this)">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    Settings
+                </a></li>
+            </ul>
+            <div class="nav-footer">
+                <div class="vendor-avatar">VD</div>
+                <div class="vendor-info">
+                    <span class="vendor-name">Your Store</span>
+                    <span class="vendor-status">● Active</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Page -->
+        <section class="page active" id="dashboard">
+            <div class="page-inner">
+                <header class="page-header">
+                    <div>
+                        <p class="page-label">Overview</p>
+                        <h2>Dashboard</h2>
+                    </div>
+                    <button class="btn-primary" onclick="showPage('products', document.querySelector('[onclick*=products]')); openModal()">+ Add Product</button>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div>
+                            <p class="stat-label">Total Earnings</p>
+                            <p class="stat-value">$0.00</p>
+                            <p class="stat-change neutral">No sales yet</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        </div>
+                        <div>
+                            <p class="stat-label">Total Orders</p>
+                            <p class="stat-value">0</p>
+                            <p class="stat-change neutral">No orders yet</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <div>
+                            <p class="stat-label">Products Listed</p>
+                            <p class="stat-value">0</p>
+                            <p class="stat-change neutral">Add your first product</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div>
+                            <p class="stat-label">Total Customers</p>
+                            <p class="stat-value">0</p>
+                            <p class="stat-change neutral">Growing soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Recent Orders</h3>
+                            <a class="card-link" onclick="showPage('orders', document.querySelector('[onclick*=orders]'))">View all</a>
+                        </div>
+                        <div class="empty-state">
+                            <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                            <p>No orders yet</p>
+                            <span>Orders will appear here once customers start buying</span>
+                        </div>
+                    </div>
+
+                    <div class="right-col">
+                        <div class="card">
+                            <div class="card-header"><h3>Quick Actions</h3></div>
+                            <div class="quick-actions">
+                                <button class="action-btn" onclick="showPage('products', document.querySelector('[onclick*=products]')); openModal()">
+                                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add Product
+                                </button>
+                                <button class="action-btn" onclick="showPage('orders', document.querySelector('[onclick*=orders]'))">
+                                    <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                                    View Orders
+                                </button>
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    Export Report
+                                </button>
+                                <button class="action-btn" onclick="showPage('settings', document.querySelector('[onclick*=settings]'))">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33"/></svg>
+                                    Store Settings
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header"><h3>Store Health</h3></div>
+                            <div class="health-list">
+                                <div class="health-item">
+                                    <span class="health-dot red"></span>
+                                    <span>No products listed</span>
+                                    <span class="health-action" onclick="showPage('products', document.querySelector('[onclick*=products]'))">Fix →</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-dot red"></span>
+                                    <span>Store logo not set</span>
+                                    <span class="health-action" onclick="showPage('settings', document.querySelector('[onclick*=settings]'))">Fix →</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-dot green"></span>
+                                    <span>Store is active</span>
+                                    <span class="health-ok">✓</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-dot green"></span>
+                                    <span>Payouts configured</span>
+                                    <span class="health-ok">✓</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Page -->
+        <section class="page" id="products">
+            <div class="page-inner">
+                <header class="page-header">
+                    <div>
+                        <p class="page-label">Inventory</p>
+                        <h2>Products</h2>
+                    </div>
+                    <button class="btn-primary" onclick="openModal()">+ Add Product</button>
+                </header>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="search-bar">
+                            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="text" placeholder="Search products...">
+                        </div>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active">All</button>
+                            <button class="filter-tab">Active</button>
+                            <button class="filter-tab">Draft</button>
+                        </div>
+                    </div>
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        <p>No products yet</p>
+                        <span>Add your first product to start selling</span>
+                        <button class="btn-primary" style="margin-top:12px" onclick="openModal()">+ Add Product</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders Page -->
+        <section class="page" id="orders">
+            <div class="page-inner">
+                <header class="page-header">
+                    <div>
+                        <p class="page-label">Sales</p>
+                        <h2>Orders</h2>
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">All</button>
+                        <button class="filter-tab">Pending</button>
+                        <button class="filter-tab">Shipped</button>
+                        <button class="filter-tab">Completed</button>
+                    </div>
+                </header>
+                <div class="card">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+                        <p>No orders yet</p>
+                        <span>When customers place orders, they'll show up here</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Page -->
+        <section class="page" id="settings">
+            <div class="page-inner">
+                <header class="page-header">
+                    <div>
+                        <p class="page-label">Configuration</p>
+                        <h2>Settings</h2>
+                    </div>
+                    <button class="btn-primary">Save Changes</button>
+                </header>
+                <div class="settings-grid">
+                    <div class="card settings-card">
+                        <h3 class="settings-section-title">Store Info</h3>
+                        <div class="form-group">
+                            <label>Store Name</label>
+                            <input type="text" class="form-input" placeholder="Your Store Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Store Description</label>
+                            <textarea class="form-input" rows="3" placeholder="Tell customers about your store..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-input">
+                                <option>Electronics</option>
+                                <option>Fashion</option>
+                                <option>Home & Garden</option>
+                                <option>Health & Beauty</option>
+                                <option>Sports</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card settings-card">
+                        <h3 class="settings-section-title">Payout Info</h3>
+                        <div class="form-group">
+                            <label>Bank Name</label>
+                            <input type="text" class="form-input" placeholder="e.g. GTBank">
+                        </div>
+                        <div class="form-group">
+                            <label>Account Number</label>
+                            <input type="text" class="form-input" placeholder="0123456789">
+                        </div>
+                        <div class="form-group">
+                            <label>Account Name</label>
+                            <input type="text" class="form-input" placeholder="Full name on account">
+                        </div>
+                    </div>
+
+                    <div class="card settings-card">
+                        <h3 class="settings-section-title">Notifications</h3>
+                        <div class="toggle-list">
+                            <div class="toggle-item">
+                                <div>
+                                    <p>New Order Alerts</p>
+                                    <span>Get notified when a customer places an order</span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div>
+                                    <p>Low Stock Alerts</p>
+                                    <span>Alert when product stock falls below 5</span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div>
+                                    <p>Payout Notifications</p>
+                                    <span>Alert when a payout is processed</span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card settings-card danger-card">
+                        <h3 class="settings-section-title danger-title">Danger Zone</h3>
+                        <p class="danger-desc">These actions are irreversible. Proceed with caution.</p>
+                        <div class="danger-actions">
+                            <button class="btn-danger-outline">Deactivate Store</button>
+                            <button class="btn-danger">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New Product</h3>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" class="form-input" placeholder="e.g. Wireless Earbuds">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price (₦)</label>
+                        <input type="number" class="form-input" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Stock Quantity</label>
+                        <input type="number" class="form-input" placeholder="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select class="form-input">
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Home & Garden</option>
+                        <option>Health & Beauty</option>
+                        <option>Sports</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-input" rows="3" placeholder="Describe your product..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Product Image</label>
+                    <div class="upload-box">
+                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <p>Click to upload or drag & drop</p>
+                        <span>PNG, JPG up to 5MB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" onclick="closeModal()">Cancel</button>
+                <button class="btn-primary">Save Product</button>
+            </div>
+        </div>
+    </div>
+
+<script src="vendors.js"></script>
+</body>
+</html>

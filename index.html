@@ -4,89 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>bixcart</title>
-
- 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- NAV -->
   <nav id="mainNav">
     <div class="logo">bix<span>cart</span></div>
-    
     <ul class="nav-links" id="desktopNavLinks">
-      <li><a data-nav="marketplace">Market</a></li>
-      <li><a data-nav="vendors">Vendors</a></li>
-      <li><a data-nav="events">Events</a></li>
+      <li><a class="nav-tab" data-tab="marketplace">Market</a></li>
+      <li><a class="nav-tab" data-tab="vendors">Vendors</a></li>
+      <li><a class="nav-tab" data-tab="events">Events</a></li>
     </ul>
-
-
     <div class="nav-right-group">
-      <a id="openAccountDesktop" class="nav-cta" data-nav="account">sell on bixcart</a>
-
+      <a id="openAccountDesktop" class="nav-cta">sell on bixcart</a>
       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
-        
-        <span></span>
-        <span></span>
-        <span></span>
-        <span id="closehamburger">X</span>
+        <span></span><span></span><span></span>
+        <span id="closehamburger">✕</span>
       </button>
     </div>
   </nav>
 
-
+  <!-- MOBILE PANEL -->
   <div class="mobile-nav-panel" id="mobilePanel">
     <ul class="nav-links-mobile">
-      <li><a data-nav="marketplace" class="mobile-nav-link">Market</a></li>
-      <li><a data-nav="vendors" class="mobile-nav-link">Vendors</a></li>
-      <li><a data-nav="events" class="mobile-nav-link">Events</a></li>
+      <li><a class="mobile-nav-link nav-tab" data-tab="marketplace">Market</a></li>
+      <li><a class="mobile-nav-link nav-tab" data-tab="vendors">Vendors</a></li>
+      <li><a class="mobile-nav-link nav-tab" data-tab="events">Events</a></li>
     </ul>
-    <a id="openAccountMobile" class="mobile-nav-cta" data-nav="account">sell on bixgo</a>
+    <a id="openAccountMobile" class="mobile-nav-cta">sell on bixcart</a>
   </div>
-
-
   <div class="menu-overlay" id="menuOverlay"></div>
 
-
+  <!-- AUTH MODAL -->
   <div id="account" class="signup-container">
     <div id="signup" class="signup">
-      <form action="">
+      <form onsubmit="return false">
         <div class="acctitle">
           <h3>SIGN UP for bixcart</h3>
-          <span id="quitaccount">X</span>
+          <span id="quitaccount">✕</span>
         </div>
         <div class="firstnlast">
-          <input type="text" id="firstName" placeholder="First Name" required>
-          <input type="text" id="lastName" placeholder="Last Name" required>
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Last Name" required>
         </div>
-        <div class="input-div"><input type="text" id="businessAlias" placeholder="Business Alias" required></div>
-        <div class="input-div"><input type="email" id="email" placeholder="Email Address" required></div>
-        <div class="input-div"><input type="text" id="whatsapp" placeholder="Whatsapp Number" required></div>
-        <div class="input-div"><input type="password" id="password" placeholder="Password" required></div>
-        <div class="input-div"><input type="password" id="confirmPassword" placeholder="Confirm Password" required></div>
+        <div class="input-div"><input type="text" placeholder="Business Alias" required></div>
+        <div class="input-div"><input type="email" placeholder="Email Address" required></div>
+        <div class="input-div"><input type="text" placeholder="WhatsApp Number" required></div>
+        <div class="input-div"><input type="password" placeholder="Password" required></div>
+        <div class="input-div"><input type="password" placeholder="Confirm Password" required></div>
         <button type="submit">Sign Up</button>
         <p>Already have an account? <span id="openlogin">Log in</span></p>
       </form>
     </div>
-    <div id="login" style="display: none;" class="signup">
-      <form action="">
-        <div class="acctitle"><h3>WELCOME BACK</h3><span id="quitaccountlogin">X</span></div>
-        <div class="input-div"><input type="email" id="loginEmail" placeholder="Email Address" required></div>
-        <div class="input-div"><input type="password" id="loginPassword" placeholder="Password" required></div>
+    <div id="login" class="signup">
+      <form onsubmit="return false">
+        <div class="acctitle"><h3>WELCOME BACK</h3><span id="quitaccountlogin">✕</span></div>
+        <div class="input-div"><input type="email" placeholder="Email Address" required></div>
+        <div class="input-div"><input type="password" placeholder="Password" required></div>
         <button type="submit">Login</button>
         <p>Don't have an account? <span id="opensignup">Sign up</span></p>
       </form>
     </div>
   </div>
 
+  <!-- HERO -->
+  <section class="hero-mini" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">🎓 ACU Campus Marketplace</div>
+      <h1>Shop &amp; sell <em>@ACU</em></h1>
+      <p>Your campus bazaar: fashion, gadgets, textbooks, same-day delivery &amp; student deals — all in one place.</p>
+      <div class="hero-btns">
+        <button class="btn-hero-primary nav-tab" data-tab="marketplace">Browse Market</button>
+        <button class="btn-hero-secondary" id="heroSell">Start Selling</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span>200+</span><small>Vendors</small></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span>1k+</span><small>Products</small></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span>Same day</span><small>Delivery</small></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="hero-mini">
-    <h1>Marketplace <em>@ACU</em> — shop, sell & celebrate</h1>
-    <p>Your campus bazaar: fashion, gadgets, textbooks, fast delivery & student deals.</p>
-  </div>
+  <!-- TICKER -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
       <span class="ticker-item">🔥 Student discounts</span><span class="ticker-sep">◆</span>
@@ -95,17 +100,168 @@
       <span class="ticker-item">💰 No listing fees</span><span class="ticker-sep">◆</span>
       <span class="ticker-item">🔥 Student discounts</span><span class="ticker-sep">◆</span>
       <span class="ticker-item">📦 Same-day delivery</span><span class="ticker-sep">◆</span>
-      <span class="ticker-item">🎟️ Event tickets</span>
-      <span class="ticker-item">🔥 Student discounts</span><span class="ticker-sep">◆</span>
-      <span class="ticker-item">📦 Same-day delivery</span><span class="ticker-sep">◆</span>
       <span class="ticker-item">🎟️ Event tickets</span><span class="ticker-sep">◆</span>
-
+      <span class="ticker-item">💰 No listing fees</span><span class="ticker-sep">◆</span>
     </div>
   </div>
 
+  <!-- MAIN CONTENT TABS -->
+  <main id="mainContent" style="display:none;">
+    <div class="tabs-container">
+      <div class="tabs">
+        <button class="tab-btn" data-tab="marketplace">Marketplace</button>
+        <button class="tab-btn" data-tab="vendors">Vendors</button>
+        <button class="tab-btn" data-tab="events">Events</button>
+      </div>
+    </div>
 
-  <footer><div class="footer-bottom"><p>© 2026 ACUgo — Campus marketplace for Ajayi Crowther University.</p></div></footer>
+    <!-- MARKETPLACE TAB -->
+    <div class="tab-pane" id="tab-marketplace">
+      <div class="shop-controls">
+        <input type="text" class="search-input" placeholder="🔍  Search products...">
+        <select class="filter-select">
+          <option value="">All Categories</option>
+          <option>Fashion</option>
+          <option>Gadgets</option>
+          <option>Textbooks</option>
+          <option>Food</option>
+          <option>Services</option>
+        </select>
+      </div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">👟</div>
+          <div class="product-title">Fresh Kicks</div>
+          <div class="product-meta">Fashion · Shoes</div>
+          <div class="product-price">₦12,500</div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="product-img">📱</div>
+          <div class="product-title">Earbuds Pro</div>
+          <div class="product-meta">Gadgets · Audio</div>
+          <div class="product-price">₦8,000</div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="product-img">📚</div>
+          <div class="product-title">Organic Chemistry 400L</div>
+          <div class="product-meta">Textbooks · Science</div>
+          <div class="product-price">₦3,200</div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="product-img">🍱</div>
+          <div class="product-title">Jollof Rice Combo</div>
+          <div class="product-meta">Food · Meals</div>
+          <div class="product-price">₦1,500</div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="product-img">💻</div>
+          <div class="product-title">Laptop Bag</div>
+          <div class="product-meta">Accessories · Bags</div>
+          <div class="product-price">₦5,000</div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="product-img">🧴</div>
+          <div class="product-title">Skincare Bundle</div>
+          <div class="product-meta">Beauty · Skin</div>
+          <div class="product-price">₦4,800</div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- VENDORS TAB -->
+    <div class="tab-pane" id="tab-vendors">
+      <div class="vendors-grid">
+        <div class="vendor-card">
+          <div class="product-img">🛍️</div>
+          <div class="vendor-name">Campus Drip</div>
+          <div class="vendor-category">Fashion & Accessories</div>
+          <div class="vendor-rating">★★★★★ <span style="color:var(--muted);font-size:0.8rem">(42 reviews)</span></div>
+          <button class="add-to-cart" style="margin-top:14px">Visit Store</button>
+        </div>
+        <div class="vendor-card">
+          <div class="product-img">📡</div>
+          <div class="vendor-name">GadgetHub ACU</div>
+          <div class="vendor-category">Electronics & Gadgets</div>
+          <div class="vendor-rating">★★★★☆ <span style="color:var(--muted);font-size:0.8rem">(28 reviews)</span></div>
+          <button class="add-to-cart" style="margin-top:14px">Visit Store</button>
+        </div>
+        <div class="vendor-card">
+          <div class="product-img">🍽️</div>
+          <div class="vendor-name">Mama's Kitchen</div>
+          <div class="vendor-category">Food & Meals</div>
+          <div class="vendor-rating">★★★★★ <span style="color:var(--muted);font-size:0.8rem">(91 reviews)</span></div>
+          <button class="add-to-cart" style="margin-top:14px">Visit Store</button>
+        </div>
+        <div class="vendor-card">
+          <div class="product-img">📖</div>
+          <div class="vendor-name">Book Spot</div>
+          <div class="vendor-category">Textbooks & Notes</div>
+          <div class="vendor-rating">★★★★☆ <span style="color:var(--muted);font-size:0.8rem">(17 reviews)</span></div>
+          <button class="add-to-cart" style="margin-top:14px">Visit Store</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENTS TAB -->
+    <div class="tab-pane" id="tab-events">
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="product-img">🎤</div>
+          <div class="event-title">ACU Night of Music</div>
+          <div class="event-date">📅 Sat, 17 May 2026</div>
+          <div class="event-location">📍 ACU Auditorium</div>
+          <div class="product-price">₦1,000</div>
+          <button class="btn-ticket">Get Ticket</button>
+        </div>
+        <div class="event-card">
+          <div class="product-img">🏆</div>
+          <div class="event-title">Inter-Faculty Sports Day</div>
+          <div class="event-date">📅 Fri, 23 May 2026</div>
+          <div class="event-location">📍 ACU Sports Complex</div>
+          <div class="product-price">Free</div>
+          <button class="btn-ticket">Register</button>
+        </div>
+        <div class="event-card">
+          <div class="product-img">🎨</div>
+          <div class="event-title">Creative Arts Exhibition</div>
+          <div class="event-date">📅 Sat, 31 May 2026</div>
+          <div class="event-location">📍 ACU Art Gallery</div>
+          <div class="product-price">₦500</div>
+          <button class="btn-ticket">Get Ticket</button>
+        </div>
+        <div class="event-card">
+          <div class="product-img">💼</div>
+          <div class="event-title">Career Fair 2026</div>
+          <div class="event-date">📅 Wed, 4 Jun 2026</div>
+          <div class="event-location">📍 ACU Conference Hall</div>
+          <div class="product-price">Free</div>
+          <button class="btn-ticket">Register</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">bix<span>cart</span></div>
+      <p class="footer-tagline">Your campus marketplace — Ajayi Crowther University</p>
+      <div class="footer-links">
+        <a>About</a>
+        <a>Help</a>
+        <a>Privacy</a>
+        <a>Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 bixcart — Campus marketplace for Ajayi Crowther University.</p></div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
