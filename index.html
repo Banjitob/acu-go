@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>ACUgo • Hamburger Fix</title>
+
+  <!-- Fonts (same as original) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav id="mainNav">
+    <div class="logo">ACU<span>go</span></div>
+    
+    <ul class="nav-links" id="desktopNavLinks">
+      <li><a data-nav="marketplace">Market</a></li>
+      <li><a data-nav="vendors">Vendors</a></li>
+      <li><a data-nav="events">Events</a></li>
+    </ul>
+
+
+    <div class="nav-right-group">
+      <a id="openAccountDesktop" class="nav-cta" data-nav="account">Sell on Acugo</a>
+      <div class="cart-icon" id="cartIcon">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </div>
+
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <div class="mobile-nav-panel" id="mobilePanel">
+    <ul class="nav-links-mobile">
+      <li><a data-nav="marketplace" class="mobile-nav-link">Market</a></li>
+      <li><a data-nav="vendors" class="mobile-nav-link">Vendors</a></li>
+      <li><a data-nav="events" class="mobile-nav-link">Events</a></li>
+    </ul>
+    <a id="openAccountMobile" class="mobile-nav-cta" data-nav="account">Sell on Acugo</a>
+  </div>
+
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+
+  <div id="account" class="signup-container">
+    <div id="signup" class="signup">
+      <form action="">
+        <div class="acctitle">
+          <h3>SIGN UP for ACUgo</h3>
+          <span id="quitaccount">X</span>
+        </div>
+        <div class="firstnlast">
+          <input type="text" id="firstName" placeholder="First Name" required>
+          <input type="text" id="lastName" placeholder="Last Name" required>
+        </div>
+        <div class="input-div"><input type="text" id="businessAlias" placeholder="Business Alias" required></div>
+        <div class="input-div"><input type="email" id="email" placeholder="Email Address" required></div>
+        <div class="input-div"><input type="text" id="whatsapp" placeholder="Whatsapp Number" required></div>
+        <div class="input-div"><input type="password" id="password" placeholder="Password" required></div>
+        <div class="input-div"><input type="password" id="confirmPassword" placeholder="Confirm Password" required></div>
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <span id="openlogin">Log in</span></p>
+      </form>
+    </div>
+    <div id="login" style="display: none;" class="signup">
+      <form action="">
+        <div class="acctitle"><h3>WELCOME BACK</h3><span id="quitaccountlogin">X</span></div>
+        <div class="input-div"><input type="email" id="loginEmail" placeholder="Email Address" required></div>
+        <div class="input-div"><input type="password" id="loginPassword" placeholder="Password" required></div>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <span id="opensignup">Sign up</span></p>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="hero-mini">
+    <h1>Marketplace <em>@ACU</em> — shop, sell & celebrate</h1>
+    <p>Your campus bazaar: fashion, gadgets, textbooks, fast delivery & student deals.</p>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner">
+      <span class="ticker-item">🔥 Student discounts</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">📦 Same-day delivery</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">🎟️ Event tickets</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">🛍️ 100+ vendors</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">💰 No listing fees</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">🔥 Student discounts</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">📦 Same-day delivery</span><span class="ticker-sep">◆</span>
+      <span class="ticker-item">🎟️ Event tickets</span>
+    </div>
+  </div>
+
+  
+
+  sect
+  <footer><div class="footer-bottom"><p>© 2026 ACUgo — Campus marketplace for Ajayi Crowther University.</p></div></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
